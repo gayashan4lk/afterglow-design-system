@@ -1,0 +1,14 @@
+{
+  "name": "afterglow-design-system",
+  "version": "1.0.0",
+  "description": "Afterglow: a dark-first editorial design system for blogs, changelogs and engineering write-ups.",
+  "private": true,
+  "scripts": {
+    "build:tokens": "node scripts/build-tokens-css.mjs",
+    "build:bundle": "node scripts/build-bundle.mjs",
+    "build": "npm run build:tokens && npm run build:bundle"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2"
+  }
+}

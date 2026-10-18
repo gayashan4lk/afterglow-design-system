@@ -1,0 +1,51 @@
+<!-- @dsCard group="Layout" height=672 width=1280 -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ArticleBody — preview</title>
+<style>
+  body { margin: 0; }
+  .cap { font-family: var(--font-mono); font-size: 11px; line-height: 16px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-muted); margin: 0 0 var(--space-3); }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+  var A = window.Afterglow, h = React.createElement;
+  function mount(el) { ReactDOM.createRoot(document.getElementById('root')).render(el); }
+  function noNav(e) { var a = e.target.closest && e.target.closest('a[href^="#"]'); if (a && a.getAttribute('href').length > 1 && !document.getElementById(a.getAttribute('href').slice(1))) e.preventDefault(); }
+  var FOOTER = {
+    siteName: 'Signal', tagline: 'Notes from the team building Signal: releases, deep dives and the occasional retrospective.',
+    columns: [
+      { title: 'Blog', links: [{ label: 'Changelog', href: '#' }, { label: 'Engineering', href: '#' }, { label: 'Security', href: '#' }, { label: 'Community', href: '#' }] },
+      { title: 'Product', links: [{ label: 'Docs', href: '#' }, { label: 'Pricing', href: '#' }, { label: 'Status', href: '#' }] },
+      { title: 'Company', links: [{ label: 'About', href: '#' }, { label: 'Careers', href: '#' }, { label: 'Contact', href: '#' }] }],
+    legal: '© 2026 Signal Labs', bottomLinks: [{ label: 'Privacy', href: '#' }, { label: 'Terms', href: '#' }], rssHref: '#' };
+  function header(current) {
+    return h(A.SiteHeader, { siteName: 'Signal', section: 'Blog', sticky: true, onSearch: function () {},
+      nav: [{ label: 'Blog', href: '#', current: current === 'blog' }, { label: 'Changelog', href: '#', current: current === 'changelog' }, { label: 'Docs', href: '#' }],
+      secondaryAction: { label: "What's new", href: '#' }, primaryAction: { label: 'Get started', href: '#' } });
+  }
+  var POSTS = [
+    { href: '#', title: 'Faster releases: what changed in our publishing pipeline', excerpt: 'We cut median publish time from four minutes to forty seconds. Here is how the new pipeline works and what it means for your builds.', date: { label: 'October 14, 2026', dateTime: '2026-10-14' }, readingTime: '6 min read', category: { label: 'Releases', hue: 'green' }, authors: [{ name: 'Lena Hart' }, { name: 'Tomás Ortega' }] },
+    { href: '#', title: 'Stronger publishing security: changes to tokens and sign-in', excerpt: 'Write tokens now expire after seven days by default.', date: { label: 'September 29, 2026', dateTime: '2026-09-29' }, readingTime: '3 min read', category: { label: 'Security', hue: 'red' }, badge: 'Retired' },
+    { href: '#', title: 'A field guide to our new search syntax', excerpt: 'Filters, ranges and saved queries, with examples you can paste.', date: { label: 'September 18, 2026', dateTime: '2026-09-18' }, readingTime: '8 min read', category: { label: 'Guides', hue: 'blue' } },
+    { href: '#', title: 'What we learned running a public roadmap for a year', excerpt: 'Votes, surprises and the features we shipped because you asked.', date: { label: 'September 2, 2026', dateTime: '2026-09-02' }, readingTime: '5 min read', category: { label: 'Community', hue: 'purple' } },
+    { href: '#', title: 'Classic tokens are deprecated', excerpt: 'They stop working on November 19. Migrate to granular tokens before then.', date: { label: 'August 21, 2026', dateTime: '2026-08-21' }, readingTime: '2 min read', category: { label: 'Deprecations', hue: 'orange' }, badge: 'Deprecated' },
+    { href: '#', title: 'Inside the cache: how we made cold starts 3× faster', excerpt: 'A tour of the layered cache behind every build, and the bug that took a week to find.', date: { label: 'August 12, 2026', dateTime: '2026-08-12' }, readingTime: '11 min read', category: { label: 'Engineering', hue: 'blue' } },
+    { href: '#', title: 'Two-factor is now required for every publisher', excerpt: 'Why we made it mandatory, and how to set it up in under a minute.', date: { label: 'July 30, 2026', dateTime: '2026-07-30' }, readingTime: '4 min read', category: { label: 'Security', hue: 'red' }, badge: 'New' }];
+  var TOC = [{ id: 'changing', label: "What's changing" }, { id: 'timeline', label: 'Timeline' }, { id: 'todo', label: 'What you need to do' }];
+  mount(h('div', { onClickCapture: noNav },
+    h(A.ArticleBody, { toc: TOC },
+      h(A.Prose, { lead: true },
+        h('p', null, 'The article sits in the centre column at the reading measure. From 1100px the sections list sits to its right and stays in view while you scroll.'),
+        h('h2', { id: 'changing' }, 'What\u2019s changing'),
+        h('p', null, 'Below 1100px the list moves above the article as a single row you can open, so the text keeps the full width of small screens.'),
+        h('h2', { id: 'timeline' }, 'Timeline'),
+        h('p', null, 'Every heading listed in the table of contents needs an id, and Prose gives headings a scroll margin so jumps land below the sticky header.'),
+        h('h2', { id: 'todo' }, 'What you need to do'),
+        h('p', null, 'Nothing: wrap the article in ArticleBody and pass the headings.')))));
+</script>
+</body>
+</html>

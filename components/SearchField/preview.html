@@ -1,0 +1,28 @@
+<!-- @dsCard group="Discovery" height=308 -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>SearchField — preview</title>
+<style>
+  body { padding: var(--space-6); }
+  .stack { display: grid; gap: var(--space-8); }
+  .row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4); }
+  .cap { font-family: var(--font-mono); font-size: 11px; line-height: 16px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-muted); margin: 0 0 var(--space-3); }
+  .narrow { width: 375px; max-width: 100%; border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+  var A = window.Afterglow, h = React.createElement;
+  function cap(t) { return h('p', { className: 'cap' }, t); }
+  function mount(el) { ReactDOM.createRoot(document.getElementById('root')).render(el); }
+  var NAV = [{ label: 'Changelog', href: '#', current: true }, { label: 'Docs', href: '#' }, { label: 'Stories', href: '#' }];
+  mount(h('div', { className: 'stack' },
+    h('div', null, cap('empty · press / to focus'), h(A.SearchField)),
+    h('div', null, cap('with text'), h(A.SearchField, { defaultValue: 'token lifetimes' })),
+    h('div', null, cap('sm'), h(A.SearchField, { size: 'sm', shortcut: false, label: 'Filter releases' }))));
+</script>
+</body>
+</html>

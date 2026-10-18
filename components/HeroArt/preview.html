@@ -1,0 +1,37 @@
+<!-- @dsCard group="Post" height=692 -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>HeroArt — preview</title>
+<style>
+  body { padding: var(--space-6); }
+  .stack { display: grid; gap: var(--space-8); }
+  .row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4); }
+  .cap { font-family: var(--font-mono); font-size: 11px; line-height: 16px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-muted); margin: 0 0 var(--space-3); }
+  .narrow { width: 375px; max-width: 100%; border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; }
+
+  .pad { padding: var(--space-6) var(--space-6) var(--space-3); }
+  .cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-4); padding: 0 var(--space-6) var(--space-6); }
+  .cards > div { border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; }
+  .cards p { margin: var(--space-2) var(--space-3); }
+
+  body { padding: 0; }</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+  var A = window.Afterglow, h = React.createElement;
+  function cap(t) { return h('p', { className: 'cap' }, t); }
+  function mount(el) { ReactDOM.createRoot(document.getElementById('root')).render(el); }
+  var NAV = [{ label: 'Changelog', href: '#', current: true }, { label: 'Docs', href: '#' }, { label: 'Stories', href: '#' }];
+  mount(h('div', null,
+    h('div', { className: 'pad' }, cap('md · red (default accent)')),
+    h(A.HeroArt),
+    h('div', { className: 'pad' }, cap('card · follows the Accent wrapper')),
+    h('div', { className: 'cards' }, ['green', 'blue', 'purple'].map(function (hue) {
+      return h(A.Accent, { key: hue, hue: hue }, h(A.HeroArt, { size: 'card' }), h('p', { className: 'cap' }, hue));
+    }))));
+</script>
+</body>
+</html>

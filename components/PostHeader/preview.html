@@ -1,0 +1,31 @@
+<!-- @dsCard group="Post" height=504 -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>PostHeader — preview</title>
+<style>
+  body { padding: var(--space-6); }
+  .stack { display: grid; gap: var(--space-8); }
+  .row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4); }
+  .cap { font-family: var(--font-mono); font-size: 11px; line-height: 16px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-muted); margin: 0 0 var(--space-3); }
+  .narrow { width: 375px; max-width: 100%; border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; }
+
+  body { padding: 0; }</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+  var A = window.Afterglow, h = React.createElement;
+  function cap(t) { return h('p', { className: 'cap' }, t); }
+  function mount(el) { ReactDOM.createRoot(document.getElementById('root')).render(el); }
+  var NAV = [{ label: 'Changelog', href: '#', current: true }, { label: 'Docs', href: '#' }, { label: 'Stories', href: '#' }];
+  mount(h(A.PostHeader, {
+    badge: 'Retired',
+    meta: [{ label: 'September 29, 2026', dateTime: '2026-09-29' }, '3 min read'],
+    title: 'Stronger publishing security: changes to tokens and sign-in',
+    dek: 'Write tokens now expire after seven days by default. Here is what changes, when, and what you need to do.' },
+    h(A.AuthorByline, { authors: [{ name: 'Priya Raman', role: 'Security engineering' }] })));
+</script>
+</body>
+</html>

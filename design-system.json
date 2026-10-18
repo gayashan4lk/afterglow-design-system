@@ -1,0 +1,28 @@
+{
+  "v": 3,
+  "assetGroups": {},
+  "blobs": {},
+  "createdOnFiles": {
+    "at": "2026-10-18T10:02:51Z",
+    "v": 1
+  },
+  "docs": {
+    "sections": []
+  },
+  "groups": [],
+  "lastChange": {
+    "at": "2026-10-18T10:46:19Z",
+    "by": "Claude",
+    "note": "Release 1.0.0: first stable version; changelog added.",
+    "via": "Claude",
+    "version": "1.0.0"
+  },
+  "layout": "files",
+  "libraries": [
+    {"name": "react", "version": "18.3.1", "global": "React", "file": "components/lib/react.production.min.js"},
+    {"name": "react-dom", "version": "18.3.1", "global": "ReactDOM", "file": "components/lib/react-dom.production.min.js"}
+  ],
+  "namespace": "Afterglow",
+  "sections": {},
+  "title": "Afterglow"
+}

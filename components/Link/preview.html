@@ -1,0 +1,41 @@
+<!-- @dsCard group="Actions" height=288 -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Link — preview</title>
+<style>
+  body { padding: var(--space-6); }
+  .stack { display: grid; gap: var(--space-6); }
+  .row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4); }
+  .cap { font-family: var(--font-mono); font-size: 11px; line-height: 16px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-muted); margin: 0 0 var(--space-2); }
+
+  .prose { max-width: 560px; margin: 0; color: var(--ink-body); }
+  .nav { display: flex; gap: var(--space-6); }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+  var A = window.Afterglow, h = React.createElement;
+  function cap(t) { return h('p', { className: 'cap' }, t); }
+  ReactDOM.createRoot(document.getElementById('root')).render(
+    h('div', { className: 'stack' },
+      h('div', null, cap('inline'),
+        h('p', { className: 'prose body' }, 'Read the ', h(A.Link, { href: '#' }, 'migration guide'), ' before you rotate tokens, or see the ', h(A.Link, { href: '#', external: true }, 'registry docs'), ' for the full list of limits.')),
+      h('div', null, cap('nav'),
+        h('nav', { className: 'nav', 'aria-label': 'Main' },
+          h(A.Link, { variant: 'nav', href: '#', current: true }, 'Changelog'),
+          h(A.Link, { variant: 'nav', href: '#' }, 'Docs'),
+          h(A.Link, { variant: 'nav', href: '#' }, 'Stories'))),
+      h('div', { className: 'row' },
+        h('div', null, cap('quiet'),
+          h('div', { className: 'row body-sm' },
+            h(A.Link, { variant: 'quiet', href: '#' }, 'Privacy'),
+            h(A.Link, { variant: 'quiet', href: '#' }, 'Terms'),
+            h(A.Link, { variant: 'quiet', href: '#' }, 'RSS'))),
+        h('div', { style: { marginLeft: 'var(--space-12)' } }, cap('arrow'),
+          h(A.Link, { variant: 'arrow', href: '#' }, 'Read the post')))));
+</script>
+</body>
+</html>

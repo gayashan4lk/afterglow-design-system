@@ -1,0 +1,38 @@
+<!-- @dsCard group="Primitives" height=272 -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Divider — preview</title>
+<style>
+  body { padding: var(--space-6); }
+  .stack { display: grid; gap: var(--space-6); }
+  .row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4); }
+  .cap { font-family: var(--font-mono); font-size: 11px; line-height: 16px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-muted); margin: 0 0 var(--space-2); }
+
+  .band { color: var(--ink-muted); padding: var(--space-3) 0; }
+  .band.meta { text-transform: uppercase; }
+  .navrow { display: flex; align-items: center; gap: var(--space-4); height: 32px; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+  var A = window.Afterglow, h = React.createElement;
+  function cap(t) { return h('p', { className: 'cap' }, t); }
+  ReactDOM.createRoot(document.getElementById('root')).render(
+    h('div', null,
+      cap('horizontal · bands'),
+      h('div', { className: 'band meta' }, '← Back to changelog'),
+      h(A.Divider),
+      h('div', { className: 'band body-sm' }, 'Post header band'),
+      h(A.Divider, { spacing: 'sm' }),
+      cap('vertical'),
+      h('div', { className: 'navrow ui' },
+        h(A.Link, { variant: 'nav', href: '#' }, 'Docs'),
+        h(A.Divider, { orientation: 'vertical' }),
+        h(A.IconButton, { icon: 'search', label: 'Search', size: 'sm' }),
+        h(A.Button, { size: 'sm', variant: 'primary' }, 'Subscribe'))));
+</script>
+</body>
+</html>

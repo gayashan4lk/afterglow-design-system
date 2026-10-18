@@ -1,0 +1,28 @@
+<!-- @dsCard group="Post" height=420 -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>CodeBlock — preview</title>
+<style>
+  body { padding: var(--space-6); }
+  .stack { display: grid; gap: var(--space-8); }
+  .row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4); }
+  .cap { font-family: var(--font-mono); font-size: 11px; line-height: 16px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-muted); margin: 0 0 var(--space-3); }
+  .narrow { width: 375px; max-width: 100%; border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+  var A = window.Afterglow, h = React.createElement;
+  function cap(t) { return h('p', { className: 'cap' }, t); }
+  function mount(el) { ReactDOM.createRoot(document.getElementById('root')).render(el); }
+  var NAV = [{ label: 'Changelog', href: '#', current: true }, { label: 'Docs', href: '#' }, { label: 'Stories', href: '#' }];
+  var TS = '<span class="token keyword">import</span> <span class="token punctuation">{</span> createToken <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"@signal/cli"</span><span class="token punctuation">;</span>\n\n<span class="token comment">// Tokens now default to a seven-day lifetime</span>\n<span class="token keyword">export</span> <span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">publishToken</span><span class="token punctuation">(</span>days <span class="token operator">=</span> <span class="token number">7</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>\n  <span class="token keyword">return</span> <span class="token function">createToken</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token property">scope</span><span class="token operator">:</span> <span class="token string">"publish"</span><span class="token punctuation">,</span> <span class="token property">expiresInDays</span><span class="token operator">:</span> days<span class="token punctuation">,</span> <span class="token property">readOnly</span><span class="token operator">:</span> <span class="token boolean">false</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>\n<span class="token punctuation">}</span>';
+  mount(h('div', { style: { display: 'grid', gap: 'var(--space-6)', maxWidth: '680px' } },
+    h(A.CodeBlock, { filename: 'scripts/publish-token.ts', language: 'ts', html: TS }),
+    h(A.CodeBlock, { language: 'bash', code: 'signal token list --expiring-within 14d\nsignal token rotate --all' })));
+</script>
+</body>
+</html>

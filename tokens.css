@@ -1,0 +1,147 @@
+/* Afterglow — generated from tokens.json */
+
+@font-face { font-family: "Geist"; src: url("fonts/Geist-Variable.woff2") format("woff2"); font-weight: 100 900; font-style: normal; font-display: swap; }
+@font-face { font-family: "Geist"; src: url("fonts/Geist-Italic-Variable.woff2") format("woff2"); font-weight: 100 900; font-style: italic; font-display: swap; }
+@font-face { font-family: "Geist Mono"; src: url("fonts/GeistMono-Variable.woff2") format("woff2"); font-weight: 100 900; font-style: normal; font-display: swap; }
+
+:root, [data-theme="dark"] {
+  --canvas: #05080d;
+  --surface: #0d1117;
+  --surface-strong: #161b22;
+  --line: #1c2128;
+  --line-strong: #5f6873;
+  --ink: #f0f3f6;
+  --ink-body: #9ea6b0;
+  --ink-muted: #7f8893;
+  --link: #5aa2fb;
+  --link-hover: #8cc0ff;
+  --inverse: var(--ink);
+  --on-inverse: var(--canvas);
+  --focus: #5aa2fb;
+  --red: #f0444b;
+  --red-ink: #ff8f93;
+  --red-soft: #3a0d12;
+  --red-glow: #6e1219;
+  --orange: #f08a3c;
+  --orange-ink: #ffb27a;
+  --orange-soft: #33190a;
+  --orange-glow: #6a2e0e;
+  --green: #3fbf62;
+  --green-ink: #74dd8f;
+  --green-soft: #0b2916;
+  --green-glow: #0f4f26;
+  --blue: #2fa6e8;
+  --blue-ink: #7cc8ff;
+  --blue-soft: #09223b;
+  --blue-glow: #0e3d66;
+  --purple: #a57bf5;
+  --purple-ink: #c7aaff;
+  --purple-soft: #21133b;
+  --purple-glow: #40217f;
+  --accent: var(--red);
+  --accent-ink: var(--red-ink);
+  --accent-soft: var(--red-soft);
+  --accent-glow: var(--red-glow);
+  --code-text: var(--ink);
+  --code-comment: var(--ink-muted);
+  --code-keyword: var(--red-ink);
+  --code-string: var(--blue-ink);
+  --code-function: var(--purple-ink);
+  --code-constant: var(--orange-ink);
+  --code-tag: var(--green-ink);
+  --shadow-pop: 0 0 0 1px #1c2128, 0 16px 40px -8px #000000cc;
+  --focus-ring: 0 0 0 2px #05080d, 0 0 0 4px #5aa2fb;
+}
+
+[data-theme="light"] {
+  --canvas: #fcfcfd;
+  --surface: #f3f5f7;
+  --surface-strong: #e8ecf0;
+  --line: #e3e7eb;
+  --line-strong: #78818b;
+  --ink: #0d1117;
+  --ink-body: #3f4751;
+  --ink-muted: #5d6670;
+  --link: #0b62c9;
+  --link-hover: #0a4f9f;
+  --inverse: var(--ink);
+  --on-inverse: var(--canvas);
+  --focus: #0b62c9;
+  --red: #d1242f;
+  --red-ink: #b01b25;
+  --red-soft: #ffeaea;
+  --red-glow: #f9c9cc;
+  --orange: #c2560c;
+  --orange-ink: #9a4108;
+  --orange-soft: #fff0e2;
+  --orange-glow: #f9d2b0;
+  --green: #1a7f37;
+  --green-ink: #136329;
+  --green-soft: #e2f6e8;
+  --green-glow: #b8e7c5;
+  --blue: #0670b8;
+  --blue-ink: #055a95;
+  --blue-soft: #e3f2fd;
+  --blue-glow: #bcdcf5;
+  --purple: #8250df;
+  --purple-ink: #6639ba;
+  --purple-soft: #f2ebff;
+  --purple-glow: #dccbfa;
+  --accent: var(--red);
+  --accent-ink: var(--red-ink);
+  --accent-soft: var(--red-soft);
+  --accent-glow: var(--red-glow);
+  --code-text: var(--ink);
+  --code-comment: var(--ink-muted);
+  --code-keyword: var(--red-ink);
+  --code-string: var(--blue-ink);
+  --code-function: var(--purple-ink);
+  --code-constant: var(--orange-ink);
+  --code-tag: var(--green-ink);
+  --shadow-pop: 0 0 0 1px #e3e7eb, 0 16px 40px -12px #0d111729;
+  --focus-ring: 0 0 0 2px #fcfcfd, 0 0 0 4px #0b62c9;
+}
+
+:root {
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-24: 96px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 12px;
+  --radius-full: 9999px;
+  --measure: 680px;
+  --toc-width: 224px;
+  --wide: 1040px;
+  --container: 1280px;
+  --header-height: 72px;
+  --hero-height: 344px;
+  --bp-sm: 640px;
+  --bp-md: 768px;
+  --bp-lg: 1100px;
+  --font-sans: "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+
+.display { font-family: var(--font-sans); font-size: 64px; line-height: 68px; font-weight: 600; letter-spacing: -0.035em; }
+.title { font-family: var(--font-sans); font-size: 48px; line-height: 56px; font-weight: 600; letter-spacing: -0.03em; }
+.title-sm { font-family: var(--font-sans); font-size: 34px; line-height: 40px; font-weight: 600; letter-spacing: -0.025em; }
+.h2 { font-family: var(--font-sans); font-size: 30px; line-height: 38px; font-weight: 600; letter-spacing: -0.02em; }
+.h3 { font-family: var(--font-sans); font-size: 22px; line-height: 30px; font-weight: 600; letter-spacing: -0.012em; }
+.h4 { font-family: var(--font-sans); font-size: 18px; line-height: 26px; font-weight: 600; letter-spacing: -0.005em; }
+.lead { font-family: var(--font-sans); font-size: 20px; line-height: 32px; font-weight: 400; letter-spacing: -0.005em; }
+.body { font-family: var(--font-sans); font-size: 17px; line-height: 28px; font-weight: 400; }
+.body-sm { font-family: var(--font-sans); font-size: 15px; line-height: 24px; font-weight: 400; }
+.caption { font-family: var(--font-sans); font-size: 14px; line-height: 20px; font-weight: 400; }
+.ui { font-family: var(--font-sans); font-size: 16px; line-height: 24px; font-weight: 500; }
+.meta { font-family: var(--font-mono); font-size: 13px; line-height: 20px; font-weight: 400; letter-spacing: 0.06em; }
+.label { font-family: var(--font-mono); font-size: 12px; line-height: 16px; font-weight: 500; letter-spacing: 0.08em; }
+.code { font-family: var(--font-mono); font-size: 14px; line-height: 22px; font-weight: 400; }

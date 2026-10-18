@@ -1,0 +1,40 @@
+<!-- @dsCard group="Post" height=1616 -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Prose — preview</title>
+<style>
+  body { padding: var(--space-6); }
+  .stack { display: grid; gap: var(--space-8); }
+  .row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4); }
+  .cap { font-family: var(--font-mono); font-size: 11px; line-height: 16px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-muted); margin: 0 0 var(--space-3); }
+  .narrow { width: 375px; max-width: 100%; border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+  var A = window.Afterglow, h = React.createElement;
+  function cap(t) { return h('p', { className: 'cap' }, t); }
+  function mount(el) { ReactDOM.createRoot(document.getElementById('root')).render(el); }
+  var NAV = [{ label: 'Changelog', href: '#', current: true }, { label: 'Docs', href: '#' }, { label: 'Stories', href: '#' }];
+  var FIG = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 680 280'%3E%3Crect width='680' height='280' fill='%23121820'/%3E%3Cg fill='%235f6873'%3E%3Crect x='60' y='60' width='56' height='180' rx='4'/%3E%3Crect x='156' y='90' width='56' height='150' rx='4'/%3E%3Crect x='252' y='120' width='56' height='120' rx='4'/%3E%3C/g%3E%3Cg fill='%2334c464'%3E%3Crect x='372' y='170' width='56' height='70' rx='4'/%3E%3Crect x='468' y='190' width='56' height='50' rx='4'/%3E%3Crect x='564' y='200' width='56' height='40' rx='4'/%3E%3C/g%3E%3Cpath d='M40 240H640' stroke='%235f6873'/%3E%3C/svg%3E";
+  var TS = '<span class="token keyword">const</span> token <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">createToken</span><span class="token punctuation">(</span><span class="token punctuation">{</span>\n  scope<span class="token operator">:</span> <span class="token string">"publish"</span><span class="token punctuation">,</span>\n  expiresInDays<span class="token operator">:</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token comment">// new default</span>\n<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>';
+  mount(h(A.Prose, { lead: true, as: 'article' },
+    h('p', null, 'We’re rolling out stricter limits on write tokens over the next five weeks, so you have time to update your workflows before anything breaks.'),
+    h('h2', { id: 'changing' }, 'What’s changing'),
+    h('p', null, 'Starting next month, every new write token gets a ', h('strong', null, 'seven-day default lifetime'), ', down from thirty. You can still choose up to ninety days. Run ', h('code', null, 'signal token list'), ' to see what you have, and read the ', h('a', { href: '#' }, 'migration guide'), ' for the full timeline.'),
+    h('ul', null, h('li', null, 'Default expiry: seven days, down from thirty.'), h('li', null, 'Maximum expiry: ninety days, previously unlimited.'), h('li', null, 'Existing tokens keep working until they expire.')),
+    h(A.Callout, { type: 'tip' }, h('p', null, 'Automate rotation with a scheduled job instead of minting long-lived tokens.')),
+    h('h3', { id: 'example' }, 'Creating a token in CI'),
+    h(A.CodeBlock, { filename: 'publish.ts', language: 'ts', html: TS }),
+    h('blockquote', null, h('p', null, 'Short-lived credentials turn a leaked secret from an incident into an inconvenience.')),
+    h('figure', null, h('img', { src: FIG, alt: 'Bar chart: token-related incidents fell from three tall bars before the change to three short green bars after.' }), h('figcaption', null, 'Figure 1. Token incidents per quarter, before and after short lifetimes.')),
+    h('h4', null, 'What you need to do'),
+    h('ol', null, h('li', null, 'Find workflows that publish with a stored token.'), h('li', null, 'Switch them to short-lived tokens or OIDC.'), h('li', null, 'Remove tokens you no longer use.')),
+    h('table', null, h('thead', null, h('tr', null, h('th', null, 'Setting'), h('th', null, 'Before'), h('th', null, 'After'))),
+      h('tbody', null, h('tr', null, h('td', null, 'Default expiry'), h('td', null, '30 days'), h('td', null, '7 days')), h('tr', null, h('td', null, 'Maximum expiry'), h('td', null, 'None'), h('td', null, '90 days'))))));
+</script>
+</body>
+</html>

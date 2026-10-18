@@ -1,0 +1,42 @@
+<!-- @dsCard group="Primitives" height=316 -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Accent — preview</title>
+<style>
+  body { padding: var(--space-6); }
+  .stack { display: grid; gap: var(--space-6); }
+  .row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4); }
+  .cap { font-family: var(--font-mono); font-size: 11px; line-height: 16px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-muted); margin: 0 0 var(--space-2); }
+
+  .hues { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--space-3); }
+  .card { border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; background: var(--canvas); }
+  .glow { height: 64px; background: linear-gradient(to top, var(--accent-glow), var(--canvas)); position: relative; overflow: hidden; }
+  .glow::after { content: ''; position: absolute; left: 50%; bottom: -32px; width: 64px; height: 64px; margin-left: -32px; border-radius: var(--radius-full); background: var(--accent); }
+  .cardbody { padding: var(--space-4) var(--space-3); display: grid; gap: var(--space-3); justify-items: start; border-top: 1px solid var(--line); }
+  .toc { border-left: 2px solid var(--accent); padding-left: var(--space-2); color: var(--ink); }
+  .use { color: var(--ink-muted); }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+  var A = window.Afterglow, h = React.createElement;
+  function cap(t) { return h('p', { className: 'cap' }, t); }
+  var USE = { red: 'Security · breaking', orange: 'Deprecations', green: 'Releases', blue: 'Guides · docs', purple: 'Community' };
+  var WORD = { red: 'Retired', orange: 'Deprecated', green: 'New', blue: 'Guide', purple: 'Opinion' };
+  ReactDOM.createRoot(document.getElementById('root')).render(
+    h('div', null, cap('one wrapper per post · everything inside follows'),
+      h('div', { className: 'hues' }, A.HUES.map(function (hue) {
+        return h(A.Accent, { key: hue, hue: hue, as: 'article', className: 'card' },
+          h('div', { className: 'glow', 'aria-hidden': true }),
+          h('div', { className: 'cardbody' },
+            h(A.Badge, null, WORD[hue]),
+            h('div', { className: 'toc body-sm' }, 'On this page'),
+            h('div', { className: 'use meta', style: { textTransform: 'uppercase' } }, hue),
+            h('div', { className: 'use caption' }, USE[hue])));
+      }))));
+</script>
+</body>
+</html>

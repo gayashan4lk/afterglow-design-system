@@ -1,0 +1,95 @@
+<!-- @dsCard height=288 -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Afterglow</title>
+<style>
+  html, body { margin:0; height:100%; }
+  body { background:var(--canvas); color:var(--ink); font-family:var(--font-sans); overflow:hidden; }
+  .cover { position:relative; width:960px; height:288px; overflow:hidden; }
+  .art { position:absolute; top:0; left:480px; width:480px; height:288px; }
+  .art svg { display:block; width:480px; height:288px; }
+  .glow { fill:var(--accent-glow); }
+  .arc { fill:var(--accent); }
+  .spark { fill:var(--ink); }
+  .dot { fill:var(--line-strong); }
+  .words { position:absolute; left:var(--space-6); bottom:var(--space-6); max-width:440px; }
+  .name { margin:0; font-size:80px; line-height:.92; font-weight:600; letter-spacing:-0.035em; color:var(--ink); }
+  .tag { margin:var(--space-3) 0 0 3px; font-size:14px; line-height:20px; color:var(--ink-muted); }
+</style>
+</head>
+<body>
+<div class="cover">
+<div class="art" aria-hidden="true">
+<svg viewBox="0 0 480 288" width="480" height="288">
+<!--
+  blocks      accent-glow half-disc r 224 (the halo, ~28% of 960x288) · accent half-disc r 144 inside it · ink spark r 6 on the halo's rim · ground canvas
+  arrangement one sunrise: both half-discs share a centre on the bottom edge of the box, so they rise out of it like the hero art's arc
+  pattern     dot grid, from "a perspective grid ... fading into canvas" (Imagery) and the mono/4px-grid voice: 52 line-strong dots, cut away where the halo rises
+  scales      pitch space-8 (32px); dot diameter space-1; inset space-4; discs are radius-full shapes (r = half the width)
+-->
+<circle class="dot" cx="16" cy="24" r="2"/>
+<circle class="dot" cx="48" cy="24" r="2"/>
+<circle class="dot" cx="80" cy="24" r="2"/>
+<circle class="dot" cx="112" cy="24" r="2"/>
+<circle class="dot" cx="144" cy="24" r="2"/>
+<circle class="dot" cx="176" cy="24" r="2"/>
+<circle class="dot" cx="208" cy="24" r="2"/>
+<circle class="dot" cx="240" cy="24" r="2"/>
+<circle class="dot" cx="272" cy="24" r="2"/>
+<circle class="dot" cx="304" cy="24" r="2"/>
+<circle class="dot" cx="336" cy="24" r="2"/>
+<circle class="dot" cx="368" cy="24" r="2"/>
+<circle class="dot" cx="400" cy="24" r="2"/>
+<circle class="dot" cx="432" cy="24" r="2"/>
+<circle class="dot" cx="464" cy="24" r="2"/>
+<circle class="dot" cx="16" cy="56" r="2"/>
+<circle class="dot" cx="48" cy="56" r="2"/>
+<circle class="dot" cx="80" cy="56" r="2"/>
+<circle class="dot" cx="112" cy="56" r="2"/>
+<circle class="dot" cx="144" cy="56" r="2"/>
+<circle class="dot" cx="176" cy="56" r="2"/>
+<circle class="dot" cx="208" cy="56" r="2"/>
+<circle class="dot" cx="240" cy="56" r="2"/>
+<circle class="dot" cx="272" cy="56" r="2"/>
+<circle class="dot" cx="304" cy="56" r="2"/>
+<circle class="dot" cx="336" cy="56" r="2"/>
+<circle class="dot" cx="368" cy="56" r="2"/>
+<circle class="dot" cx="400" cy="56" r="2"/>
+<circle class="dot" cx="432" cy="56" r="2"/>
+<circle class="dot" cx="464" cy="56" r="2"/>
+<circle class="dot" cx="16" cy="88" r="2"/>
+<circle class="dot" cx="48" cy="88" r="2"/>
+<circle class="dot" cx="80" cy="88" r="2"/>
+<circle class="dot" cx="112" cy="88" r="2"/>
+<circle class="dot" cx="368" cy="88" r="2"/>
+<circle class="dot" cx="400" cy="88" r="2"/>
+<circle class="dot" cx="432" cy="88" r="2"/>
+<circle class="dot" cx="464" cy="88" r="2"/>
+<circle class="dot" cx="16" cy="120" r="2"/>
+<circle class="dot" cx="48" cy="120" r="2"/>
+<circle class="dot" cx="80" cy="120" r="2"/>
+<circle class="dot" cx="400" cy="120" r="2"/>
+<circle class="dot" cx="432" cy="120" r="2"/>
+<circle class="dot" cx="464" cy="120" r="2"/>
+<circle class="dot" cx="16" cy="152" r="2"/>
+<circle class="dot" cx="48" cy="152" r="2"/>
+<circle class="dot" cx="432" cy="152" r="2"/>
+<circle class="dot" cx="464" cy="152" r="2"/>
+<circle class="dot" cx="16" cy="184" r="2"/>
+<circle class="dot" cx="464" cy="184" r="2"/>
+<circle class="dot" cx="16" cy="216" r="2"/>
+<circle class="dot" cx="464" cy="216" r="2"/>
+<circle class="glow" cx="240" cy="288" r="224"/>
+<circle class="arc" cx="240" cy="288" r="144"/>
+<circle class="spark" cx="412" cy="144" r="6"/>
+</svg>
+</div>
+<div class="words">
+<h1 class="name">Afterglow</h1>
+<p class="tag">Dark-first editorial design for blogs and changelogs.</p>
+</div>
+</div>
+</body>
+</html>
